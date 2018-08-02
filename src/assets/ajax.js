@@ -3,11 +3,7 @@ import {Notification} from 'element-ui'
 import router from '@/router'
 export default (options)=>{
 	return new Promise((resolve, reject)=>{
-		if(process.env.NODE_ENV === 'production'){
-			options.baseURL='https://www.yzqroom.cn/im'
-		}else{
-			options.baseURL='http://localhost:3300/im'
-		}
+		options.baseURL='https://www.yzqroom.cn/im'
 		options.withCredentials=true
 		axios(options).then(res=>{
 			if(res.status>400||res.data.code>400){
